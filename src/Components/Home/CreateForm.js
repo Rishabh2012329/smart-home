@@ -23,7 +23,7 @@ export default function CreateForm({isOpen, handleClose}) {
       return alert("Limit of creating switches is one for testing purposes!")
     e.stopPropagation()
     e.preventDefault()
-    console.log(state)
+    //console.log(state)
     dispatch({
       type:"CREATE",
       payload:state

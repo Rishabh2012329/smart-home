@@ -14,7 +14,7 @@ import { getSwitches } from './api/switches';
 function App() {
 
   useEffect(()=>{
-    console.log(getSwitches())
+    //console.log(getSwitches())
   },[])
   
   return (

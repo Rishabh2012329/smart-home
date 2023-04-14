@@ -15,7 +15,7 @@ const useAuth = () => {
       if (!email || !password)
         throw new Error("Email and Password are required!");
       let user = await signInWithEmailAndPassword(auth, email, password);
-      console.log(user);
+      //console.log(user);
     } catch (error) {
       setError(error.message);
     }

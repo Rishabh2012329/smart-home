@@ -2,7 +2,7 @@ import React, { createContext, useReducer, useEffect } from 'react';
 import { getSwitches, updateSwitch } from '../api/switches';
 
 function convertToArray(obj){
-  console.log(obj)
+  //console.log(obj)
   let arr = []
   for(let x in obj){
     
@@ -58,7 +58,7 @@ export const SwitchesProvider = ({ children }) => {
 
   const load = async ()=> {
     const savedSwitches = convertToArray(await getSwitches())
-    console.log(savedSwitches)
+    //console.log(savedSwitches)
     if (savedSwitches) {
       dispatch({ type: "LOAD", payload: savedSwitches });
     }
