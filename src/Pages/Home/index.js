@@ -4,6 +4,7 @@ import Modal from '../../Components/Modal';
 import CreateForm from '../../Components/Home/CreateForm';
 import SmartSwitch from '../../Components/SmartSwitch';
 import { SwitchesContext } from '../../context/switchContext';
+import Sensor from '../../Components/Sensor';
 
 const Home = () => {
   const [isOpen, setOpen] = useState(false)
@@ -36,6 +37,7 @@ const Home = () => {
           handleClick={handleSwitchClick}
         />)}
       </div>
+      <Sensor/>
     </div>
   );
 };

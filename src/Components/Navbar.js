@@ -7,7 +7,7 @@ export const Navbar = ({handleAdd}) => {
             class="text-xl font-semibold text-neutral-800"
             href="#"
           >
-            Navbar
+            Smart Home
           </a>
         </div>
         

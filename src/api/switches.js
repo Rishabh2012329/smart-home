@@ -34,8 +34,3 @@ export const getImage = async () => {
     })
    return switches.val().UIbvsbv234sbbvu_ESP32_CAM.Sensor.Img
 }
-
-
-export const updateStatus = async (switchNo) => {
-    
-}
