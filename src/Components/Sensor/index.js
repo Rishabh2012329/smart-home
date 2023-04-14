@@ -11,7 +11,7 @@ export default function Sensor() {
     load()
   },[])
   return (
-    <div className="fixed left-12 bottom-12 bg-blue-400 rounded-md p-4 text-white w-36 flex justify-around">
+    <div className="fixed left-4 bottom-12 bg-blue-500 rounded-md p-4 text-white w-36 flex justify-around">
         <span>{state?.Temp}°C</span>
         <div className='flex row items-center justify-center w-8'>{state?.Humid}<svg version="1.1" fill="white" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enableBackground="new 0 0 1000 1000" space="preserve">
 
