@@ -1,10 +1,22 @@
 import React, { createContext, useReducer, useEffect } from 'react';
+import { getSwitches, updateSwitch } from '../api/switches';
+
+function convertToArray(obj){
+  console.log(obj)
+  let arr = []
+  for(let x in obj){
+    
+    if(x.startsWith("sw1")){
+      arr.push({...obj[x], name:"Switch 1", logoType:"fan", key:x})
+    }
+  }
+  return arr
+}
 
 // Define the initial state of the switches
 const initialState = [
-  { status: "ON", logoName: "logo1.png", name: "Switch 1", mcuName: "mcu1" },
-  { status: "OFF", logoName: "logo2.png", name: "Switch 2", mcuName: "mcu2" },
-  { status: "ON", logoName: "logo3.png", name: "Switch 3", mcuName: "mcu3" },
+  // { status: "ON", logoName: "logo1.png", name: "Switch 1", mcuName: "mcu1" },
+
 ];
 
 // Define the reducer function
@@ -13,8 +25,12 @@ const reducer = (state, action) => {
     case "DELETE":
       // Remove the switch with the given name
       return state.filter(sw => sw.name !== action.payload.name);
-    
+    case "CREATE":
+      state.push(action.payload);
+      localStorage.setItem("switches", JSON.stringify(state))
+      return state
     case "UPDATE":
+      updateSwitch("status", action.payload.status)
       let updatedState = state.map(sw => {
         if (sw.name === action.payload.name) {
           return { ...sw, status: action.payload.status };
@@ -40,11 +56,16 @@ export const SwitchesContext = createContext();
 export const SwitchesProvider = ({ children }) => {
   const [switches, dispatch] = useReducer(reducer, initialState);
 
-  useEffect(() => {
-    const savedSwitches = localStorage.getItem("switches");
+  const load = async ()=> {
+    const savedSwitches = convertToArray(await getSwitches())
+    console.log(savedSwitches)
     if (savedSwitches) {
-      dispatch({ type: "LOAD", payload: JSON.parse(savedSwitches) });
+      dispatch({ type: "LOAD", payload: savedSwitches });
     }
+  }
+
+  useEffect(() => {
+    load()
   }, []); 
 
   return (

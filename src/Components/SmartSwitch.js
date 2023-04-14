@@ -65,14 +65,14 @@ const svgs = {
   },
 };
 
-export default function SmartSwitch({ logoName, name, status = "OFF", mcuName, handleClick, handleMenue }) {
-  let theme = status == "ON" ? "light" : "dark";
+export default function SmartSwitch({ logoName, name, status = 0, mcuName, handleClick, handleMenue }) {
+  let theme = status == 1 ? "light" : "dark";
   return (
     <div
       className={`${
-        status == "OFF" ? "bg-gray-200" : "bg-blue-500"
+        status == 0 ? "bg-gray-200" : "bg-blue-500"
       } w-44 h-28 m-2 rounded-md p-2 shadow-xl flex flex-col justify-between ${
-        status == "ON" && "text-white "
+        status == 1 && "text-white "
       }`}
       onClick={()=>handleClick(name, status)}
     >

@@ -8,8 +8,14 @@ import {
 import Home from './Pages/Home';
 import { SwitchesProvider } from './context/switchContext';
 import Esp from './Pages/Esp';
+import { useEffect } from 'react';
+import { getSwitches } from './api/switches';
 
 function App() {
+
+  useEffect(()=>{
+    console.log(getSwitches())
+  },[])
   
   return (
     <SwitchesProvider>

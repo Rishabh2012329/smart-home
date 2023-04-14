@@ -8,14 +8,12 @@ import { SwitchesContext } from '../../context/switchContext';
 const Home = () => {
   const [isOpen, setOpen] = useState(false)
    const {switches, dispatch} = useContext(SwitchesContext)
-
-   const handleSwitchClick = (name, prevStatus) => {
-    
+   const handleSwitchClick = (name, prevStatus) => { 
     dispatch({
       type:"UPDATE",
       payload:{
         name: name,
-        status: prevStatus=="ON"?"OFF":"ON"
+        status: prevStatus?0:1
       }
     })
    }
