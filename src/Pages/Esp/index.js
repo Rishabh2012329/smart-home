@@ -21,7 +21,7 @@ export default function Esp() {
   },[])
   
   return (
-    <div>
+    <div className='flex items-center justify-center w-100' style={{height:"100vh"}}>
         <img src={'data:image/png;base64,'+image}/>
     </div>
   )
