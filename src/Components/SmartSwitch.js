@@ -65,7 +65,7 @@ const svgs = {
   },
 };
 
-export default function SmartSwitch({ logoName, name, status = 0, mcuName, handleClick, handleMenue }) {
+ function SmartSwitch({ logoName, name, status = 0, mcuName, handleClick, handleMenue }) {
   let theme = status == 1 ? "light" : "dark";
   return (
     <div
@@ -89,3 +89,5 @@ export default function SmartSwitch({ logoName, name, status = 0, mcuName, handl
     </div>
   );
 }
+
+export default React.memo(SmartSwitch)

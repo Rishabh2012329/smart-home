@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { getSensors } from '../../api/sensor'
-
+import { onValue, ref } from 'firebase/database'
+import { database } from '../../firebase'
 
 export default function Sensor() {
   const [state, setState] = useState({})
   async function load(){
-    setState(await getSensors())
+    onValue(ref(database, 'UIbvsbv234sbbvu_ESP32_CAM/Sensor/DTH11'),(snapshot)=>{
+        setState(snapshot.val())
+    })
+    
   }
   useEffect(()=>{
     load()

@@ -1,5 +1,7 @@
 import React, { createContext, useReducer, useEffect } from 'react';
 import { getSwitches, updateSwitch } from '../api/switches';
+import { onValue, ref } from 'firebase/database';
+import { database } from '../firebase';
 
 function convertToArray(obj){
   //console.log(obj)
@@ -57,11 +59,16 @@ export const SwitchesProvider = ({ children }) => {
   const [switches, dispatch] = useReducer(reducer, initialState);
 
   const load = async ()=> {
-    const savedSwitches = convertToArray(await getSwitches())
-    //console.log(savedSwitches)
-    if (savedSwitches) {
-      dispatch({ type: "LOAD", payload: savedSwitches });
-    }
+    const dbRef = ref(database,'UIbvsbv234sbbvu_ESP32_CAM/')
+    onValue(dbRef,(snapshot)=>{
+      const savedSwitches = convertToArray(snapshot.val())
+     
+      if (savedSwitches) {
+        dispatch({ type: "LOAD", payload: savedSwitches });
+      }
+
+    })
+    
   }
 
   useEffect(() => {
