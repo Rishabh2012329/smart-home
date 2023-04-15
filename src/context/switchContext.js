@@ -9,7 +9,7 @@ function convertToArray(obj){
   for(let x in obj){
     
     if(x.startsWith("sw1")){
-      arr.push({...obj[x], name:"Switch 1", logoType:"fan", key:x})
+      arr.push({...obj[x], key:x})
     }
   }
   return arr
