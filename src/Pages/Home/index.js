@@ -21,9 +21,9 @@ const Home = () => {
    
   return (
     <div className='flex flex-col'>
-        <Navbar
+        {/* <Navbar
           handleAdd={()=>setOpen(!isOpen)}
-        />
+        /> */}
         <CreateForm
           isOpen={isOpen}
           handleClose={()=>setOpen(!isOpen)}

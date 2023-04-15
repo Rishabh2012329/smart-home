@@ -81,9 +81,7 @@ const svgs = {
           {svgs[theme][logoName]}
           <p className="ml-1 text-xs">{name}</p>
         </div>
-        <span onClick={(e)=>{
-          e.stopPropagation()
-          alert("clicked")}}>{svgs[theme]["menu"]}</span>
+        <span></span>
       </div>
       <div>{mcuName}</div>
     </div>

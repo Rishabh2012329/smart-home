@@ -5,14 +5,20 @@ export const Navbar = ({handleAdd}) => {
         <div>
           <a
             class="text-xl font-semibold text-neutral-800"
-            href="#"
+            href="/"
           >
             Smart Home
           </a>
         </div>
-        
+        <div className="flex flex-row items-center justify-center">
+
+        <a href='/esp' className="flex items-center justify-center w-8 h-8 text-black">
+          Cam
+        </a>
+
         <div onClick={handleAdd} className="hover:bg-gray-200 rounded-3xl flex items-center justify-center w-8 h-8 text-neutral-800 text-2xl cursor-pointer">
           +
+        </div>
         </div>
       </div>
     </nav>
