@@ -103,18 +103,20 @@ const Home = () => {
         ))}
       </div>
       <Sensor />
-      <div
-        className={`w-12 h-12 ${isListening?"bg-blue-500":"bg-gray-200"} rounded-full p-2 shadow-xl flex flex-col flex justify-center items-center fixed bottom-12 right-4`}
-        onClick={()=>{
-          if(isListening)
-            handleReset()
-          else
-            handleListing()
-        }}
-      >
-        {svgIcons[isListening?'light':'dark']['microphone']}
+      <div className="fixed bottom-4 right-4 flex flex-col justify-center items-center">
+        <div
+          className={`w-12 h-12 ${isListening?"bg-blue-500":"bg-gray-200"} rounded-full p-2 shadow-xl flex flex-col flex justify-center items-center `}
+          onClick={()=>{
+            if(isListening)
+              handleReset()
+            else
+              handleListing()
+          }}
+        >
+          {svgIcons[isListening?'light':'dark']['microphone']}
+        </div>
+        <p className={`${isListening?"visible":"invisible"}`}>Try Saying <b>"Turn on"</b> or <b>"Turn off"!</b></p>
       </div>
-      
     </div>
   );
 };
